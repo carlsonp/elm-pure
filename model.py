@@ -48,6 +48,10 @@ class ELM:
         self._num_hidden_units = num_hidden_units
         self._num_out_units = num_out_units
 
+        print('Input length/nodes: ', self._num_input_nodes)
+        print('Number of hidden layers: ', self._num_hidden_units)
+        print('Number output units/classes: ', self._num_out_units)
+
         self._activation = getActivation(activation)
         self._loss = getLoss(loss)
 
@@ -79,7 +83,7 @@ class ELM:
         H_pinv = np.linalg.pinv(H)
         if display_time:
             stop = time.time()
-            print(f'Train time: {stop-start}')
+            print(f'Training time (seconds): {stop-start}')
 
         self._beta = H_pinv.dot(Y)
 
